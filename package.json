@@ -2,7 +2,7 @@
   "name": "caratlane-monolith",
   "version": "1.0.0",
   "scripts": {
-    "build": "npm install --prefix jewellery-backend && npm install --prefix jewellery-discovery && npm run build --prefix jewellery-discovery",
+    "build": "npm install --prefix jewellery-backend && npm install --prefix jewellery-discovery --include=dev && npm run build --prefix jewellery-discovery",
     "start": "npm start --prefix jewellery-backend"
   }
 }
