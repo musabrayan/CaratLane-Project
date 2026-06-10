@@ -1,0 +1,5 @@
+/* App.css has been deprecated in favor of Tailwind CSS utility classes.
+   Only essential global overrides and keyframes that can't easily be in tailwind.config.js are kept here.
+*/
+
+/* Remove custom styles since we are migrating to Tailwind utility classes entirely */

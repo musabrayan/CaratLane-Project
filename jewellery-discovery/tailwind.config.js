@@ -1,0 +1,282 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  theme: {
+    extend: {
+      /* ─────────────────────────────────────────────
+         COLOUR PALETTE  — CaratLane inspired
+         Rose gold warmth · deep burgundy · ivory silk
+      ───────────────────────────────────────────── */
+      colors: {
+        /* Rose Gold — primary brand accent */
+        "rose-gold": {
+          50: "#FDF6F0",
+          100: "#FAE8DA",
+          200: "#F5CEAF",
+          300: "#EDAA78",
+          400: "#E08A4E", /* main CTA hover */
+          500: "#C9703A", /* primary CTA */
+          600: "#A85A2E",
+          700: "#854523",
+          800: "#5E3019",
+          900: "#3B1D0E",
+        },
+
+        /* Champagne Gold — highlights, price tags */
+        champagne: {
+          50: "#FDFAF3",
+          100: "#F8EFD4",
+          200: "#F0D98D",
+          300: "#E5C055",
+          400: "#CFA82E",
+          500: "#B08E1A",
+          600: "#8C7015",
+          700: "#67520F",
+          800: "#433609",
+          900: "#211B04",
+        },
+
+        /* Ivory — page & card backgrounds */
+        ivory: {
+          50: "#FFFFF8",
+          100: "#FDFBF0",
+          200: "#FAF5E1",
+          300: "#F5EDD0",
+          400: "#EDE3BA",
+          500: "#E0D4A0",
+        },
+
+        /* Midnight — text, deep contrasts */
+        midnight: {
+          50: "#EFECF0",
+          100: "#D3CDD5",
+          200: "#A89FAC",
+          300: "#7D6E83",
+          400: "#554860",
+          500: "#352841",
+          600: "#271D32",
+          700: "#1B1224",
+          800: "#100B17",
+          900: "#07040D",
+        },
+
+        /* Blush — soft feminine accent, ribbons, tags */
+        blush: {
+          50: "#FEF3F6",
+          100: "#FDE0EA",
+          200: "#F9B5CC",
+          300: "#F285A8",
+          400: "#E55A85",
+          500: "#C9365E",
+          600: "#A02649",
+          700: "#7A1935",
+          800: "#530F23",
+          900: "#2E0714",
+        },
+
+        /* Pearl — dividers, subtle backgrounds */
+        pearl: {
+          50: "#FEFEFD",
+          100: "#F9F8F5",
+          200: "#F0EEE8",
+          300: "#E3E0D6",
+          400: "#CCC9BC",
+          500: "#B1ADA0",
+        },
+      },
+
+      /* ─────────────────────────────────────────────
+         TYPOGRAPHY
+         Cormorant Garamond (display) + DM Sans (body)
+      ───────────────────────────────────────────── */
+      fontFamily: {
+        display: ["Cormorant Garamond", "Georgia", "serif"],
+        body: ["DM Sans", "system-ui", "sans-serif"],
+        label: ["DM Sans", "system-ui", "sans-serif"],
+      },
+
+      fontSize: {
+        "display-2xl": ["4.5rem", { lineHeight: "1.05", letterSpacing: "-0.02em" }],
+        "display-xl": ["3.75rem", { lineHeight: "1.08", letterSpacing: "-0.02em" }],
+        "display-lg": ["3rem", { lineHeight: "1.1", letterSpacing: "-0.015em" }],
+        "display-md": ["2.25rem", { lineHeight: "1.2", letterSpacing: "-0.01em" }],
+        "display-sm": ["1.875rem", { lineHeight: "1.3" }],
+        "body-lg": ["1.125rem", { lineHeight: "1.75" }],
+        "body-md": ["1rem", { lineHeight: "1.7" }],
+        "body-sm": ["0.875rem", { lineHeight: "1.65" }],
+        "label-xs": ["0.75rem", { lineHeight: "1.4", letterSpacing: "0.06em" }],
+        "label-sm": ["0.8125rem", { lineHeight: "1.4", letterSpacing: "0.05em" }],
+      },
+
+      fontWeight: {
+        light: "300",
+        regular: "400",
+        medium: "500",
+        semibold: "600",
+        bold: "700",
+      },
+
+      /* ─────────────────────────────────────────────
+         SPACING  (8px base)
+      ───────────────────────────────────────────── */
+      spacing: {
+        0.5: "2px",
+        1: "4px",
+        2: "8px",
+        3: "12px",
+        4: "16px",
+        5: "20px",
+        6: "24px",
+        7: "28px",
+        8: "32px",
+        9: "36px",
+        10: "40px",
+        12: "48px",
+        14: "56px",
+        16: "64px",
+        20: "80px",
+        24: "96px",
+        28: "112px",
+        32: "128px",
+        36: "144px",
+        40: "160px",
+        48: "192px",
+        56: "224px",
+        64: "256px",
+        section: "96px",
+        hero: "160px",
+      },
+
+      /* ─────────────────────────────────────────────
+         BORDER RADIUS
+      ───────────────────────────────────────────── */
+      borderRadius: {
+        none: "0",
+        xs: "2px",
+        sm: "4px",
+        DEFAULT: "6px",
+        md: "8px",
+        lg: "12px",
+        xl: "16px",
+        "2xl": "20px",
+        "3xl": "24px",
+        full: "9999px",
+        /* Jewellery-specific: soft organic shapes */
+        gem: "40% 60% 55% 45% / 50% 45% 55% 50%",
+      },
+
+      /* ─────────────────────────────────────────────
+         BOX SHADOW  — soft depth, no harsh drops
+      ───────────────────────────────────────────── */
+      boxShadow: {
+        "card-sm": "0 1px 3px rgba(53,40,65,0.06), 0 1px 2px rgba(53,40,65,0.04)",
+        card: "0 4px 12px rgba(53,40,65,0.08), 0 2px 4px rgba(53,40,65,0.04)",
+        "card-lg": "0 12px 32px rgba(53,40,65,0.10), 0 4px 8px rgba(53,40,65,0.06)",
+        "card-xl": "0 24px 48px rgba(53,40,65,0.12), 0 8px 16px rgba(53,40,65,0.06)",
+        gold: "0 4px 20px rgba(201,112,58,0.25)",
+        "gold-lg": "0 8px 32px rgba(201,112,58,0.35)",
+        "inner-sm": "inset 0 1px 3px rgba(53,40,65,0.08)",
+        none: "none",
+      },
+
+      /* ─────────────────────────────────────────────
+         BACKGROUND IMAGE — subtle gradients
+      ───────────────────────────────────────────── */
+      backgroundImage: {
+        "ivory-gradient": "linear-gradient(135deg, #FDFBF0 0%, #F5EDD0 100%)",
+        "rose-gold-gradient": "linear-gradient(135deg, #EDAA78 0%, #C9703A 100%)",
+        "champagne-gradient": "linear-gradient(135deg, #F8EFD4 0%, #E5C055 100%)",
+        "midnight-gradient": "linear-gradient(135deg, #352841 0%, #1B1224 100%)",
+        "luxury-gradient": "linear-gradient(160deg, #F5EDD0 0%, #EDAA78 40%, #352841 100%)",
+        "pearl-sheen": "linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(240,238,232,0.6) 100%)",
+        none: "none",
+      },
+
+      /* ─────────────────────────────────────────────
+         SCREENS  (standard + wide luxury canvas)
+      ───────────────────────────────────────────── */
+      screens: {
+        xs: "375px",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1440px",
+        "3xl": "1920px",
+      },
+
+      /* ─────────────────────────────────────────────
+         TRANSITION  — smooth jewellery-quality motion
+      ───────────────────────────────────────────── */
+      transitionDuration: {
+        fast: "150ms",
+        DEFAULT: "250ms",
+        slow: "400ms",
+        slower: "600ms",
+      },
+      transitionTimingFunction: {
+        luxury: "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+        spring: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      },
+
+      /* ─────────────────────────────────────────────
+         ASPECT RATIOS
+      ───────────────────────────────────────────── */
+      aspectRatio: {
+        product: "3 / 4", /* portrait product card */
+        hero: "16 / 7",
+        banner: "5 / 2",
+        square: "1 / 1",
+        jewel: "4 / 5",
+      },
+
+      /* ─────────────────────────────────────────────
+         Z-INDEX
+      ───────────────────────────────────────────── */
+      zIndex: {
+        behind: "-1",
+        base: "0",
+        raised: "10",
+        overlay: "20",
+        sticky: "30",
+        drawer: "40",
+        modal: "50",
+        toast: "60",
+      },
+
+      /* ─────────────────────────────────────────────
+         ANIMATION — delicate reveals
+      ───────────────────────────────────────────── */
+      keyframes: {
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        "scale-in": {
+          "0%": { opacity: "0", transform: "scale(0.95)" },
+          "100%": { opacity: "1", transform: "scale(1)" },
+        },
+        sparkle: {
+          "0%, 100%": { opacity: "1", transform: "scale(1) rotate(0deg)" },
+          "50%": { opacity: "0.6", transform: "scale(1.15) rotate(15deg)" },
+        },
+      },
+      animation: {
+        shimmer: "shimmer 2.5s linear infinite",
+        "fade-up": "fade-up 0.5s cubic-bezier(0.25,0.46,0.45,0.94) both",
+        "fade-in": "fade-in 0.4s ease both",
+        "scale-in": "scale-in 0.35s cubic-bezier(0.25,0.46,0.45,0.94) both",
+        sparkle: "sparkle 1.8s ease-in-out infinite",
+      },
+    },
+  },
+  plugins: [],
+};

@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@theme {
+  --color-rose-gold-50: #FDF6F0;
+  --color-rose-gold-100: #FAE8DA;
+  --color-rose-gold-200: #F5CEAF;
+  --color-rose-gold-300: #EDAA78;
+  --color-rose-gold-400: #E08A4E;
+  --color-rose-gold-500: #C9703A;
+  --color-rose-gold-600: #A85A2E;
+  --color-rose-gold-700: #854523;
+  --color-rose-gold-800: #5E3019;
+  --color-rose-gold-900: #3B1D0E;
+
+  --color-champagne-50: #FDFAF3;
+  --color-champagne-100: #F8EFD4;
+  --color-champagne-200: #F0D98D;
+  --color-champagne-300: #E5C055;
+  --color-champagne-400: #CFA82E;
+  --color-champagne-500: #B08E1A;
+  --color-champagne-600: #8C7015;
+  --color-champagne-700: #67520F;
+  --color-champagne-800: #433609;
+  --color-champagne-900: #211B04;
+
+  --color-ivory-50: #FFFFF8;
+  --color-ivory-100: #FDFBF0;
+  --color-ivory-200: #FAF5E1;
+  --color-ivory-300: #F5EDD0;
+  --color-ivory-400: #EDE3BA;
+  --color-ivory-500: #E0D4A0;
+
+  --color-midnight-50: #EFECF0;
+  --color-midnight-100: #D3CDD5;
+  --color-midnight-200: #A89FAC;
+  --color-midnight-300: #7D6E83;
+  --color-midnight-400: #554860;
+  --color-midnight-500: #352841;
+  --color-midnight-600: #271D32;
+  --color-midnight-700: #1B1224;
+  --color-midnight-800: #100B17;
+  --color-midnight-900: #07040D;
+
+  --color-blush-50: #FEF3F6;
+  --color-blush-100: #FDE0EA;
+  --color-blush-200: #F9B5CC;
+  --color-blush-300: #F285A8;
+  --color-blush-400: #E55A85;
+  --color-blush-500: #C9365E;
+  --color-blush-600: #A02649;
+  --color-blush-700: #7A1935;
+  --color-blush-800: #530F23;
+  --color-blush-900: #2E0714;
+
+  --color-pearl-50: #FEFEFD;
+  --color-pearl-100: #F9F8F5;
+  --color-pearl-200: #F0EEE8;
+  --color-pearl-300: #E3E0D6;
+  --color-pearl-400: #CCC9BC;
+  --color-pearl-500: #B1ADA0;
+
+  --font-display: "Cormorant Garamond", "Georgia", "serif";
+  --font-body: "DM Sans", "system-ui", "sans-serif";
+  --font-label: "DM Sans", "system-ui", "sans-serif";
+}
+
+@layer base {
+  html, body {
+    @apply bg-ivory-50 text-midnight-800 font-body antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body::before {
+    content: '';
+    @apply fixed inset-0 pointer-events-none;
+    background-image:
+      linear-gradient(rgba(133, 69, 35, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(133, 69, 35, 0.04) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0));
+    z-index: 0;
+  }
+
+  ::selection {
+    @apply bg-rose-gold-200 text-midnight-900;
+  }
+}
+
+/* ─── Marquee Animation ─── */
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  animation: marquee-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ─── Gold Line Draw ─── */
+@keyframes draw-line {
+  0% { transform: scaleY(0); }
+  100% { transform: scaleY(1); }
+}
+
+.gold-line-draw {
+  transform-origin: top;
+  animation: draw-line 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ─── Gradient Text ─── */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #EDAA78 0%, #C9703A 40%, #E5C055 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Magnetic Card Light Overlay ─── */
+.magnetic-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.magnetic-card-light {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.magnetic-card:hover .magnetic-card-light {
+  opacity: 1;
+}
+
+/* ─── Shimmer on hover ─── */
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(200%) rotate(25deg); }
+}
+
+.shimmer-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.15) 45%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.15) 55%,
+    transparent 60%
+  );
+  transform: translateX(-100%) rotate(25deg);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.shimmer-hover:hover::after {
+  animation: shimmer-sweep 0.8s ease forwards;
+}
+
+/* ─── Scroll indicator bounce ─── */
+@keyframes gentle-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+.scroll-indicator {
+  animation: gentle-bounce 2.5s ease-in-out infinite;
+}
+
+/* ─── Footer gradient animation ─── */
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient-bg {
+  background: linear-gradient(
+    135deg,
+    #100B17 0%,
+    #1B1224 25%,
+    #271D32 50%,
+    #1B1224 75%,
+    #100B17 100%
+  );
+  background-size: 300% 300%;
+  animation: gradient-shift 12s ease infinite;
+}
+
+/* ─── Timeline connector ─── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 112, 58, 0.3); }
+  50% { box-shadow: 0 0 0 8px rgba(201, 112, 58, 0); }
+}
+
+.timeline-dot {
+  animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+/* ─── Floating subtle elements ─── */
+@keyframes float-gentle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-6px) rotate(1deg); }
+  66% { transform: translateY(3px) rotate(-0.5deg); }
+}
+
+.float-gentle {
+  animation: float-gentle 6s ease-in-out infinite;
+}
+
+.float-gentle-delayed {
+  animation: float-gentle 7s ease-in-out 1s infinite;
+}
+
+/* ─── Scrollbar ─── */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .scroll-indicator,
+  .timeline-dot,
+  .float-gentle,
+  .float-gentle-delayed,
+  .animated-gradient-bg {
+    animation: none !important;
+  }
+
+  .shimmer-hover::after {
+    display: none;
+  }
+}
