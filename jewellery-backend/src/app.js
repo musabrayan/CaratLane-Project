@@ -28,9 +28,13 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../jewellery-discovery/dist")));
 
   // Any route that doesn't start with /api gets passed to React Router
-  app.get("*", (req, res) =>
-    res.sendFile(path.resolve(__dirname, "../jewellery-discovery/dist", "index.html"))
-  );
+  app.use((req, res, next) => {
+    if (req.method === "GET") {
+      res.sendFile(path.resolve(__dirname, "../jewellery-discovery/dist", "index.html"));
+    } else {
+      next();
+    }
+  });
 } else {
   // Only use 404 handler for API routes in dev, or let dev server handle frontend
   app.use(notFound);
